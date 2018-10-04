@@ -1,0 +1,65 @@
+.crypto-list-item {
+  display: flex;
+  flex-direction: row;
+}
+.crypto-list-item > .card-body {
+  height: 15px;
+  padding: 0px;
+  border: 0px;
+}
+.crypto-list-item > div {
+  background-color: #fff;
+  width: 100px;
+  margin: 1px;
+  padding-top: 15px;
+  text-align: center;
+  align-items: center;
+  font-size: 20px;
+}
+.crypto-list-item > .title {
+  font-size: 25px;
+  width: 200px;
+  padding-top: 10px;
+  margin-left: 10px;
+  text-align: left;
+  align-items: center;
+}
+.crypto-list-item > .logo-32 {
+  width: 40px;
+  margin: 0px;
+  padding-top: 13px;
+  text-align: center;
+  align-items: center;
+}
+.crypto-list-item > .text-normal {
+  font-size: 20px;
+  width: 100px;
+  padding-top: 15px;
+  margin-left: 20px;
+  text-align: center;
+}
+.crypto-list-item > .text-small {
+  font-size: 14px;
+  width: 100px;
+  padding-top: 22px;
+  margin-left: 20px;
+  text-align: center;
+}
+.crypto-list-item > .rank {
+  font-size: 20px;
+  width: 30px;
+  padding-top: 15px;
+  margin-left: 20px;
+  text-align: left;
+  align-items: center;
+}
+.crypto-list-item > .header-text {
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 15px;
+  background-color: #fff;
+}
+.crypto-list-item > .header-space {
+  width: 15px;
+  padding: 5px;
+}
