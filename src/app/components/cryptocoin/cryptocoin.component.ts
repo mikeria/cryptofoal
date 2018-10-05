@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { Coin } from "../../models/coin";
 
 @Component({
@@ -7,7 +7,14 @@ import { Coin } from "../../models/coin";
   styleUrls: ["./cryptocoin.component.css"]
 })
 export class CryptocoinComponent implements OnInit {
-  constructor() {}
+  @Input()
   coin: Coin;
+  constructor() {}
   ngOnInit() {}
+  get cryptoCoin() {
+    return this.coin;
+  }
+  set cryptoCoin(value) {
+    this.coin = value;
+  }
 }

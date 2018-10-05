@@ -9,13 +9,15 @@ import { CryptocoinsComponent } from "./components/cryptocoins/cryptocoins.compo
 import { CryptocoinComponent } from "./components/cryptocoin/cryptocoin.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { AppRoutingModule } from ".//app-routing.module";
+import { CryptoListHeaderComponent } from './components/crypto-list-header/crypto-list-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CryptocoinsComponent,
     CryptocoinComponent,
-    NavbarComponent
+    NavbarComponent,
+    CryptoListHeaderComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [CryptocoinService],

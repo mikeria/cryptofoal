@@ -1,3 +1,33 @@
-<p>
-  cryptocoin works!
-</p>
+<div class="crypto-list-item ">
+  <!--<app-cryptocoin coin="{{coin}}"></app-cryptocoin> -->
+  <div class="rank">
+    {{coin.rank}}
+  </div>
+  <div class="logo-32">
+    <img src="https://s2.coinmarketcap.com/static/img/coins/32x32/{{coin.id}}.png" />
+  </div>
+  <div class="title">
+    {{ coin.name}}
+  </div>
+  <div class="text-normal">
+    {{ coin.symbol }}
+  </div>
+  <div class="text-normal">
+    <p>{{coin.quotes.USD.price | currency}}</p>
+  </div>
+  <div class="text-small">
+    <p>{{coin.quotes.USD.market_cap | currency:'USD':'symbol':'1.0-0'}}</p>
+  </div>
+  <div class="text-small">
+    <p>{{coin.quotes.USD.volume_24h | currency:'USD':'symbol':'1.0-0'}}</p>
+  </div>
+  <div class="text-small">
+    <p>{{coin.circulating_supply }}</p>
+  </div>
+  <div class="text-small">
+    <p>{{coin.quotes.USD.percent_change_24h }}%</p>
+  </div>
+  <div class="text-small">
+    <input type="checkbox" name="isPortfolio" />
+  </div>
+</div>
