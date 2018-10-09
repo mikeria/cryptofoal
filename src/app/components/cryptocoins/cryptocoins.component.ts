@@ -12,20 +12,16 @@ import { CryptoListHeaderComponent } from "../crypto-list-header/crypto-list-hea
 export class CryptocoinsComponent implements OnInit {
   coins: Coin[];
   listCoins: Coin[];
-  //coinsWithImages: Coin[];
-  //listCoinImages: Coin[];
-  //imageInit: boolean = false;
   portfolio: Coin[] = [];
   coinsInit: boolean = false;
   constructor(private cryptoService: CryptocoinService) {}
-  //baseImageUrl: string = "https://www.cryptocompare.com";
   ngOnInit() {
     this.cryptoService.getCoins().subscribe(coins => {
       console.log(coins + "..coins ello!");
       console.log(
         Object.values(coins["data"]) + "..object values on coins convert!"
       );
-      this.coins = Object.values(coins["data"]); //Object.values(coins).shift();
+      this.coins = Object.values(coins["data"]);
       this.coins.sort(this.numericSort);
       this.listCoins = this.coins.slice(0, 10);
       this.coinsInit = true;
@@ -33,5 +29,23 @@ export class CryptocoinsComponent implements OnInit {
   }
   numericSort(obj1, obj2) {
     return parseInt(obj1.rank) - parseInt(obj2.rank);
+  }
+  onPortfolioChange(coin: Coin) {
+    const coinId = coin.id;
+    const coinIndex = this.portfolio.findIndex(rCoin => rCoin.id === coin.id);
+    if (coinIndex === -1) {
+      this.portfolio.unshift(coin);
+    } else {
+      this.portfolio.splice(coinIndex, 1);
+    }
+
+    console.log(coinIndex + ":coinIndex");
+    console.log(coinId + ":coinId");
+  }
+  checkPortfolio(value, index, array) {
+    console.log("index" + index);
+    console.log("value" + value.id);
+    console.log("run" + index);
+    return value.id;
   }
 }

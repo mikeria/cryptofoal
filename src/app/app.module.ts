@@ -9,7 +9,11 @@ import { CryptocoinsComponent } from "./components/cryptocoins/cryptocoins.compo
 import { CryptocoinComponent } from "./components/cryptocoin/cryptocoin.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { AppRoutingModule } from ".//app-routing.module";
-import { CryptoListHeaderComponent } from './components/crypto-list-header/crypto-list-header.component';
+import { CryptoListHeaderComponent } from "./components/crypto-list-header/crypto-list-header.component";
+import { PortfolioComponent } from "./components/portfolio/portfolio.component";
+import { PortfolioService } from "./services/portfolio.service";
+import { HomeComponent } from "./components/home/home.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,10 +21,12 @@ import { CryptoListHeaderComponent } from './components/crypto-list-header/crypt
     CryptocoinsComponent,
     CryptocoinComponent,
     NavbarComponent,
-    CryptoListHeaderComponent
+    CryptoListHeaderComponent,
+    PortfolioComponent,
+    HomeComponent
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
-  providers: [CryptocoinService],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  providers: [CryptocoinService, PortfolioService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

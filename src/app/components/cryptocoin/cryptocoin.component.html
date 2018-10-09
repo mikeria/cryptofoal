@@ -28,6 +28,7 @@
     <p>{{coin.quotes.USD.percent_change_24h }}%</p>
   </div>
   <div class="text-small">
-    <input type="checkbox" name="isPortfolio" />
+    <input type="checkbox" name="isPortfolio_cb" [(ngModel)]="isPortfolio" (change)="portfolioChange(isPortfolio)"
+      checked="isPortfolio" />
   </div>
 </div>

@@ -7,14 +7,15 @@ import { Coin } from "../../models/coin";
   styleUrls: ["./cryptocoin.component.css"]
 })
 export class CryptocoinComponent implements OnInit {
+  @Output()
+  portfolioEmitter: EventEmitter<Coin> = new EventEmitter();
   @Input()
   coin: Coin;
+  isPortfolio: boolean = false;
   constructor() {}
   ngOnInit() {}
-  get cryptoCoin() {
-    return this.coin;
-  }
-  set cryptoCoin(value) {
-    this.coin = value;
+  portfolioChange(bool: boolean) {
+    console.log("portfolio change from coin");
+    this.portfolioEmitter.emit(this.coin);
   }
 }
