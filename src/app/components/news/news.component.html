@@ -1,0 +1,12 @@
+<div class="card" *ngFor="let news of newsList">
+  <div class="card-body">
+    <div class="flexbox-container ">
+      <img [src]="news.imageurl" width="150" height="150" />
+      <div class="text-container">
+        <h3><a href="news.url" target="_blank">{{news.title}}</a> </h3>
+        <p>{{ news.body }}</p>
+        <h5>Tags: {{news.tags}}</h5>
+        <p>Source: {{news.source}} | Categories: {{news.categories}}</p>
+      </div>
+    </div>
+  </div>

@@ -8,5 +8,5 @@ export interface Coin {
   circulating_supply: number;
   total_supply: number;
   max_supply: number;
-  quotes: CoinQuotes;
+  quotes: Object;
 }

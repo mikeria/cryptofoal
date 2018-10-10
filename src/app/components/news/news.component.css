@@ -1,0 +1,8 @@
+.flexbox-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+.flexbox-container .text-container {
+  margin-left: 10px;
+}

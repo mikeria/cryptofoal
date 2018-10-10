@@ -19,7 +19,4 @@ export class CryptocoinComponent implements OnInit {
     console.log("portfolio change from coin");
     this.portfolioEmitter.emit(this.coin);
   }
-  coinDeleted(coin: Coin) {
-    console.log("coin deleted");
-  }
 }

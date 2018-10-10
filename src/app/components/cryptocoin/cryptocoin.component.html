@@ -13,19 +13,19 @@
     {{ coin.symbol }}
   </div>
   <div class="text-normal">
-    <p>{{coin.quotes.USD.price | currency}}</p>
+    <p>{{coin.quotes['USD']['price'] | currency}}</p>
   </div>
   <div class="text-small">
-    <p>{{coin.quotes.USD.market_cap | currency:'USD':'symbol':'1.0-0'}}</p>
+    <p>{{coin.quotes['USD']['market_cap'] | currency:'USD':'symbol':'1.0-0'}}</p>
   </div>
   <div class="text-small">
-    <p>{{coin.quotes.USD.volume_24h | currency:'USD':'symbol':'1.0-0'}}</p>
+    <p>{{coin.quotes['USD']['volume_24h'] | currency:'USD':'symbol':'1.0-0'}}</p>
   </div>
   <div class="text-small">
     <p>{{coin.circulating_supply }}</p>
   </div>
   <div class="text-small">
-    <p>{{coin.quotes.USD.percent_change_24h }}%</p>
+    <p>{{coin.quotes['USD']['percent_change_24h'] }}%</p>
   </div>
   <div class="text-small">
     <input type="checkbox" name="isPortfolio_cb" [(ngModel)]="isPortfolio" (change)="portfolioChange(isPortfolio)"

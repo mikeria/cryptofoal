@@ -14,6 +14,8 @@ import { PortfolioComponent } from "./components/portfolio/portfolio.component";
 import { PortfolioService } from "./services/portfolio.service";
 import { HomeComponent } from "./components/home/home.component";
 import { FormsModule } from "@angular/forms";
+import { NewsComponent } from "./components/news/news.component";
+import { NewsService } from "./services/news.service";
 
 @NgModule({
   declarations: [
@@ -23,10 +25,11 @@ import { FormsModule } from "@angular/forms";
     NavbarComponent,
     CryptoListHeaderComponent,
     PortfolioComponent,
-    HomeComponent
+    HomeComponent,
+    NewsComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
-  providers: [CryptocoinService, PortfolioService],
+  providers: [CryptocoinService, PortfolioService, NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
