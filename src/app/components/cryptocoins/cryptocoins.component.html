@@ -5,6 +5,9 @@
     <a class="nav-link active" data-toggle="tab" href="#list">Cryptocurrencies</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#news">News Feed </a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#portfolio">Portfolio {{portfolio.length}}</a>
   </li>
 </ul>
@@ -14,19 +17,17 @@
       <app-crypto-list-header></app-crypto-list-header>
     </div>
     <div *ngFor="let coin of listCoins">
-      <app-cryptocoin [coin]="coin" (portfolioEmitter)="onPortfolioChange($event)"></app-cryptocoin>
+      <app-cryptocoin #coinComps id="coin.id" [coin]="coin" (portfolioEmitter)="onPortfolioChange($event)"></app-cryptocoin>
       <hr />
     </div>
+  </div>
+  <div id="news" class="container tab-pane fade"><br>
+    <h3>News</h3>
+
   </div>
   <div id="portfolio" class="container tab-pane fade"><br>
     <h3>Portfolio{{portfolio.length}}</h3>
-
-    <div>
-      <app-crypto-list-header></app-crypto-list-header>
-    </div>
-    <div *ngFor="let pcoin of portfolio">
-      <app-cryptocoin [coin]="pcoin" (portfolioEmitter)="onPortfolioChange($event)"></app-cryptocoin>
-      <hr />
-    </div>
+    <app-portfolio [(portfolio)]="portfolio" (portfolioDeleted)="coinDeleted($event)" (portfolioEmitter)="onPortfolioChange($event)"></app-portfolio>
 
   </div>
+</div>

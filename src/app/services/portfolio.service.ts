@@ -14,19 +14,25 @@ export class PortfolioService {
       this.goals = goals;
       localStorage.setItem('goals', JSON.stringify(goals)); */
     }
-    this.portfolios = [
-      {
-        name: "myPortfolio1",
-        list: [
-          {
-            id: 1027,
-            name: "ETH",
-            quantity: 20,
-            initialPrice: 10
-          }
-        ]
-      }
-    ];
+    // this.portfolios = [
+    //   {
+    //     name: "myPortfolio1",
+    //     list: [
+    //       {
+    //         id: 1027,
+    //         name: "ETH",
+    //         quantity: 20,
+    //         initialPrice: 10,
+    //         symbol: "ETH",
+    //         rank: 2,
+    //         circulating_supply: 20000000,
+    //         total_supply: 20000000,
+    //         max_supply: 20000000,
+    //         quotes: {}
+    //       }
+    //     ]
+    //   }
+    // ];
     return this.portfolios;
   }
   //getPortfolioNames() {}

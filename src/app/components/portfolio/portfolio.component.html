@@ -1,3 +1,7 @@
-<p>
-  portfolio works!
-</p>
+<div>
+  <app-crypto-list-header></app-crypto-list-header>
+</div>
+<div *ngFor="let pcoin of portfolio">
+  <app-cryptocoin [coin]="pcoin" (portfolioEmitter)="onPortfolioChange($event)" isPortfolio=true></app-cryptocoin>
+  <hr />
+</div>

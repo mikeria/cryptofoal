@@ -1,4 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input,
+  ViewChild,
+  ViewChildren
+} from "@angular/core";
 import { Coin } from "../../models/coin";
 import { CryptocoinService } from "../../services/coin.service";
 import { CryptocoinComponent } from "../cryptocoin/cryptocoin.component";
@@ -10,9 +18,12 @@ import { CryptoListHeaderComponent } from "../crypto-list-header/crypto-list-hea
   styleUrls: ["./cryptocoins.component.css"]
 })
 export class CryptocoinsComponent implements OnInit {
+  @Output()
+  deletedPortfolioCoinCheck: EventEmitter<Coin> = new EventEmitter();
+  @Input()
+  portfolio: Coin[] = [];
   coins: Coin[];
   listCoins: Coin[];
-  portfolio: Coin[] = [];
   coinsInit: boolean = false;
   constructor(private cryptoService: CryptocoinService) {}
   ngOnInit() {
@@ -39,13 +50,18 @@ export class CryptocoinsComponent implements OnInit {
       this.portfolio.splice(coinIndex, 1);
     }
 
-    console.log(coinIndex + ":coinIndex");
+    console.log(coinIndex + ":coinIndex from cryptocoins");
     console.log(coinId + ":coinId");
   }
-  checkPortfolio(value, index, array) {
-    console.log("index" + index);
-    console.log("value" + value.id);
-    console.log("run" + index);
-    return value.id;
+  @ViewChildren("coinComps")
+  coinComponents;
+  //update view component
+  coinDeleted(coin: Coin) {
+    console.log("coin deleted from coins");
+    const coinComponentsArray = this.coinComponents.toArray();
+    const coinIndex = coinComponentsArray.findIndex(
+      comp => comp.coin.id === coin.id
+    );
+    (coinComponentsArray[coinIndex] as CryptocoinComponent).isPortfolio = false;
   }
 }
