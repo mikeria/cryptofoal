@@ -10,25 +10,35 @@
     {{ coin.name}}
   </div>
   <div class="text-normal">
-    {{ coin.symbol }}
-  </div>
-  <div class="text-normal">
     <p>{{coin.quotes['USD']['price'] | currency}}</p>
   </div>
   <div class="text-small">
     <p>{{coin.quotes['USD']['market_cap'] | currency:'USD':'symbol':'1.0-0'}}</p>
   </div>
-  <div class="text-small">
+  <div *ngIf="!isPortfolio" class="text-small">
     <p>{{coin.quotes['USD']['volume_24h'] | currency:'USD':'symbol':'1.0-0'}}</p>
   </div>
-  <div class="text-small">
-    <p>{{coin.circulating_supply }}</p>
+  <div *ngIf="!isPortfolio" class="text-small">
+    <p>{{coin.circulating_supply | number }}</p>
   </div>
-  <div class="text-small">
-    <p>{{coin.quotes['USD']['percent_change_24h'] }}%</p>
+  <div class="text-small" [style.color]="coin.quotes['USD']['percent_change_24h'] >= 0? 'green':'red'">
+    <p>{{coin.quotes['USD']['percent_change_24h']
+      }}%</p>
   </div>
-  <div class="text-small">
-    <input type="checkbox" name="isPortfolio_cb" [(ngModel)]="isPortfolio" (change)="portfolioChange(isPortfolio)"
-      checked="isPortfolio" />
+
+  <div *ngIf="isPortfolio" class="form-group" style="padding-top: 14px">
+    <input class="form-control" pattern="0-9." type="number" min="0" (change)="valueChanged(coin.quantity)" name="quantity"
+      [(ngModel)]="coin.quantity" />
+  </div>
+  <div *ngIf="isPortfolio" class="input-group">
+    <span class="input-group-addon">$</span>
+    <input class="form-control currency" pattern="0-9." type="number" min="0" name="pricepaid" [(ngModel)]="coin.initialPrice" />
+  </div>
+  <div *ngIf="isPortfolio" class="text-small">
+    <p>{{coinPortfolioValue | currency:'USD':'symbol':'1.0-0'}} </p>
+  </div>
+  <div class="form-group text-small">
+    <input class="form-check-input" type="checkbox" name="inPortfolio_cb" [(ngModel)]="inPortfolio" (change)="portfolioChange(inPortfolio)"
+      checked="inPortfolio" />
   </div>
 </div>

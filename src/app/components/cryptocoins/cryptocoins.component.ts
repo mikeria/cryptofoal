@@ -62,6 +62,6 @@ export class CryptocoinsComponent implements OnInit {
     const coinIndex = coinComponentsArray.findIndex(
       comp => comp.coin.id === coin.id
     );
-    (coinComponentsArray[coinIndex] as CryptocoinComponent).isPortfolio = false;
+    (coinComponentsArray[coinIndex] as CryptocoinComponent).inPortfolio = false;
   }
 }

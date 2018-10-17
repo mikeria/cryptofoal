@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-crypto-list-header',
-  templateUrl: './crypto-list-header.component.html',
-  styleUrls: ['./crypto-list-header.component.css']
+  selector: "app-crypto-list-header",
+  templateUrl: "./crypto-list-header.component.html",
+  styleUrls: ["./crypto-list-header.component.css"]
 })
 export class CryptoListHeaderComponent implements OnInit {
+  @Input()
+  isPortfolio: boolean = false;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -1,7 +1,7 @@
 <div>
-  <app-crypto-list-header></app-crypto-list-header>
+  <app-crypto-list-header isPortfolio="true"></app-crypto-list-header>
 </div>
 <div *ngFor="let pcoin of portfolio">
-  <app-cryptocoin [coin]="pcoin" (portfolioEmitter)="onPortfolioChange($event)" isPortfolio=true></app-cryptocoin>
+  <app-cryptocoin [coin]="pcoin" (portfolioEmitter)="onPortfolioChange($event)" inPortfolio=true isPortfolio=true></app-cryptocoin>
   <hr />
 </div>
