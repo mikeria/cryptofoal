@@ -27,6 +27,9 @@ export class CryptocoinsComponent implements OnInit {
   coinsInit: boolean = false;
   constructor(private cryptoService: CryptocoinService) {}
   ngOnInit() {
+    this.initCoins();
+  }
+  initCoins() {
     this.cryptoService.getCoins().subscribe(coins => {
       console.log(coins + "..coins ello!");
       console.log(

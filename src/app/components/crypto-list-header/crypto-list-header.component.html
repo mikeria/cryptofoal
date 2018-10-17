@@ -10,7 +10,7 @@
   <div class="text-normal header-text">
     Price
   </div>
-  <div class="text-normal header-text">
+  <div *ngIf="!isPortfolio" class="text-normal header-text">
     Market Cap
   </div>
   <div *ngIf="!isPortfolio" class="text-normal header-text">
@@ -19,6 +19,7 @@
   <div *ngIf="!isPortfolio" class="text-normal header-text">
     Circulating supply
   </div>
+
   <div class="text-normal header-text">
     Change (24h)
   </div>
@@ -30,6 +31,9 @@
   </div>
   <div *ngIf="isPortfolio" class="text-normal header-text">
     Value
+  </div>
+  <div *ngIf="isPortfolio" class="text-normal header-text">
+    Change (portfolio)
   </div>
   <div class="text-normal header-text">
     Portfolio

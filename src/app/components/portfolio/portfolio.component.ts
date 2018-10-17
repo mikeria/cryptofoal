@@ -16,9 +16,15 @@ export class PortfolioComponent implements OnInit {
   @Input()
   portfolio: Coin[];
   constructor(private portfolioService: PortfolioService) {}
+  portfolioReady: boolean = false;
 
   ngOnInit() {
-    //this.portfolioList = this.portfolioService.getPortfolio();
+    this.initPortfolio();
+  }
+  initPortfolio() {
+    this.portfolioList = this.portfolioService.getPortfolio();
+    //ready to get live prices for portfolio - need to set a flag
+    this.portfolioReady = true;
   }
   onPortfolioChange(coin: Coin) {
     const coinId = coin.id;
@@ -29,6 +35,7 @@ export class PortfolioComponent implements OnInit {
       this.portfolio.splice(coinIndex, 1);
     }
     this.portfolioDeleted.emit(coin);
+    this.portfolioService.updatePortfolio(this.portfolio);
     console.log(coinIndex + ":coinIndex from portfolio");
     console.log(coinId + ":coinId from portfolio");
   }

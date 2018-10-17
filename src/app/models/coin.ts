@@ -9,4 +9,6 @@ export interface Coin {
   total_supply: number;
   max_supply: number;
   quotes: Object;
+  initialPrice?: number;
+  quantity?: number;
 }
